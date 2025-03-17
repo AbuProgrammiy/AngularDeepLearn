@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ChildComponent } from './components/child/child.component';
 import { CommonComponent } from './components/common/common.component';
+import { ParentComponent } from './components/parent/parent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ChildComponent,
-    CommonComponent
+    CommonComponent,
+    ParentComponent
   ],
   imports: [
     BrowserModule,

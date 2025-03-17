@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
 
 @Component({
@@ -6,11 +6,17 @@ import { UserService } from '../../services/user/user.service';
   standalone: false,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  viewProviders:[UserService],
-  encapsulation:ViewEncapsulation.Emulated
 })
 export class HomeComponent {
-  constructor(public userService: UserService) { 
-    userService.doSomething("home")
+  data:{count:number}={count:0}
+
+  increment(){
+    this.data.count++
+    console.log(this.data);
+    
+  }
+
+  newReferenceToObject(){
+    this.data={count:this.data.count}
   }
 }
