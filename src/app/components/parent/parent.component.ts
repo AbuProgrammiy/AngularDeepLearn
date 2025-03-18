@@ -1,25 +1,37 @@
-import { ChangeDetectionStrategy, Component, ContentChild, ElementRef, Input, OnChanges, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { ChildComponent } from '../child/child.component';
+import { Component, ComponentRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { HelloComponent } from '../hello/hello.component';
+import { GoodbyeComponent } from '../goodbye/goodbye.component';
+import { UserModule } from '../../modules/user/user.module';
 
 @Component({
   selector: 'app-parent',
   standalone: false,
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.scss',
-  encapsulation: ViewEncapsulation.None,
 })
 export class ParentComponent {
-  ngOnChanges(): void {
-    console.log("ngOnChange dan xabar");
-  }
+  currentComponent = HelloComponent
+
+  @ViewChild('container', { read: ViewContainerRef, static: true }) container!: ViewContainerRef;
+  componentRef!: ComponentRef<HelloComponent>
+  // ^^^ -> componentRef elon qilish
 
   ngOnInit(): void {
-    console.log("ngOnInint dan xabar");
+    this.container.createComponent(HelloComponent)
   }
 
-  ngDoCheck(): void {
-    console.log("ngDoCheck dan xabar");
-  }
+  changeComponent(name: string) {
+    if (name == "hello") {
+      this.container.clear()
+      this.componentRef = this.container.createComponent(HelloComponent)
+      // ^^^ -> reference berish
+      this.componentRef.instance.message = "Hello from parent to input"
+      // ^^^ -> inputini update qilish
 
-  
+    }
+    else if (name == "goodbye") {
+      this.container.clear()
+      this.container.createComponent(GoodbyeComponent)
+    }
+  }
 }
