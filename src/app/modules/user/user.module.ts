@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
 @NgModule({
   declarations: [
-    UserComponent
+    UserComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule
   ],
-  exports:[UserComponent]
 })
-export class UserModule { }
+export class UserModule {
+  constructor() {
+    console.log("User Modul yuklandi");
+  }
+}

@@ -3,13 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
 import { ChildComponent } from './components/child/child.component';
 import { CommonComponent } from './components/common/common.component';
-import { ParentComponent } from './components/parent/parent.component';
-import { HelloComponent } from './components/hello/hello.component';
 import { GoodbyeComponent } from './components/goodbye/goodbye.component';
-import { UserModule } from './modules/user/user.module';
+import { HelloComponent } from './components/hello/hello.component';
+import { HomeComponent } from './components/home/home.component';
+import { ParentComponent } from './components/parent/parent.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +22,7 @@ import { UserModule } from './modules/user/user.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    UserModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

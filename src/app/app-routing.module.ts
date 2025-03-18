@@ -5,12 +5,14 @@ import { ChildComponent } from './components/child/child.component';
 import { CommonComponent } from './components/common/common.component';
 import { ParentComponent } from './components/parent/parent.component';
 import { UserComponent } from './modules/user/user.component';
+import { AdminComponent } from './modules/user/admin/admin.component';
 
 const routes: Routes = [
   {path:"home",component:HomeComponent},
   {path:"parent",component:ParentComponent},
   {path:"child",component:ChildComponent},
   {path:"common",component:CommonComponent},
+  {path:"admin",component:AdminComponent},
   {path:"user",component:UserComponent}
 ];
 
