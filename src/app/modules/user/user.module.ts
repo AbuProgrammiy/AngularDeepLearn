@@ -7,7 +7,6 @@ import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
-    UserComponent,
     AdminComponent
   ],
   imports: [
