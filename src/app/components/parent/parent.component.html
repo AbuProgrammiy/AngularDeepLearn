@@ -1,5 +1,29 @@
-<button (click)="changeComponent('hello')">hello component</button>
-<button (click)="changeComponent('goodbye')">goodbye component</button>
+<!--Data Binding-->
+<h3>{{value}}</h3>
 
-<ng-container #container></ng-container>
-<app-user></app-user>
+<button (click)="trigger($event)">Bos</button>
+<input (input)="trigger($event)" type="text">
+<div (mouseenter)="trigger($event)" class="red-area">red area</div>
+
+<!--Property  Bindings-->
+<img [src]="imgUrl" alt="rasm qani" class="flower">
+<button [disabled]="isDisabled">men bosilmayman</button>
+<input [value]="username">
+<div [class.green]="isGreenClass"></div>
+<p [style.color]="textColor">hello text</p>
+
+
+<!--Atribute Bindings-->
+<input type="text" [attr.maxlength]="numberValue">
+<button [attr.status]="status" (click)="changeStatus()">Submit</button>
+
+
+<!--Two way Binding-->
+<p>two way binding: {{someText}}</p>
+<input [(ngModel)]="someText" type="text">
+
+<select [(ngModel)]="selectedOption">
+    <option >Option 1</option>
+    <option >Option 2</option>
+</select>
+<p>Selected: {{ selectedOption }}</p>

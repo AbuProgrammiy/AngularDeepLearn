@@ -1,7 +1,5 @@
-import { Component, ComponentRef, ViewChild, ViewContainerRef } from '@angular/core';
-import { HelloComponent } from '../hello/hello.component';
-import { GoodbyeComponent } from '../goodbye/goodbye.component';
-import { UserModule } from '../../modules/user/user.module';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-parent',
@@ -10,28 +8,29 @@ import { UserModule } from '../../modules/user/user.module';
   styleUrl: './parent.component.scss',
 })
 export class ParentComponent {
-  currentComponent = HelloComponent
-
-  @ViewChild('container', { read: ViewContainerRef, static: true }) container!: ViewContainerRef;
-  componentRef!: ComponentRef<HelloComponent>
-  // ^^^ -> componentRef elon qilish
-
-  ngOnInit(): void {
-    this.container.createComponent(HelloComponent)
+  trigger(event?:Event){
+    console.log("bosildima");
+    console.log((event?.target as any).value);
   }
 
-  changeComponent(name: string) {
-    if (name == "hello") {
-      this.container.clear()
-      this.componentRef = this.container.createComponent(HelloComponent)
-      // ^^^ -> reference berish
-      this.componentRef.instance.message = "Hello from parent to input"
-      // ^^^ -> inputini update qilish
+  value="Something"
+  numberValue=10
 
+  imgUrl="https://images.unsplash.com/photo-1471899236350-e3016bf1e69e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zmxvd2VyfGVufDB8fDB8fHww"
+  isDisabled=true
+  username="abuProgrammiy"
+  isGreenClass=true
+  textColor="blue"
+  status="green"
+  someText!:string
+  selectedOption!:string
+
+  changeStatus(){
+    if(this.status=="green"){
+      this.status="red"
     }
-    else if (name == "goodbye") {
-      this.container.clear()
-      this.container.createComponent(GoodbyeComponent)
+    else{
+      this.status=""
     }
   }
 }

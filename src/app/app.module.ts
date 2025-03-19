@@ -10,6 +10,7 @@ import { ParentComponent } from './components/parent/parent.component';
 import { HelloComponent } from './components/hello/hello.component';
 import { GoodbyeComponent } from './components/goodbye/goodbye.component';
 import { UserModule } from './modules/user/user.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UserModule } from './modules/user/user.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UserModule
+    UserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

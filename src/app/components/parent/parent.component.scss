@@ -1,3 +1,36 @@
-.hello1{
+.hello1 {
     color: green;
+}
+
+.red-area {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.flower{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.green{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+button[status="green"]{
+    background-color: green;
+}
+
+button[status="red"]{
+    background-color: red;
 }
