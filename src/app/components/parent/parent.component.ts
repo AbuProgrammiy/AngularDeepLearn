@@ -10,28 +10,14 @@ import { UserModule } from '../../modules/user/user.module';
   styleUrl: './parent.component.scss',
 })
 export class ParentComponent {
-  currentComponent = HelloComponent
+  isActive=true
 
-  @ViewChild('container', { read: ViewContainerRef, static: true }) container!: ViewContainerRef;
-  componentRef!: ComponentRef<HelloComponent>
-  // ^^^ -> componentRef elon qilish
-
-  ngOnInit(): void {
-    this.container.createComponent(HelloComponent)
-  }
-
-  changeComponent(name: string) {
-    if (name == "hello") {
-      this.container.clear()
-      this.componentRef = this.container.createComponent(HelloComponent)
-      // ^^^ -> reference berish
-      this.componentRef.instance.message = "Hello from parent to input"
-      // ^^^ -> inputini update qilish
-
+  change(){
+    if(this.isActive){
+      this.isActive=false
     }
-    else if (name == "goodbye") {
-      this.container.clear()
-      this.container.createComponent(GoodbyeComponent)
+    else{
+      this.isActive=true
     }
   }
 }

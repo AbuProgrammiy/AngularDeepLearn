@@ -1,5 +1,13 @@
-<button (click)="changeComponent('hello')">hello component</button>
-<button (click)="changeComponent('goodbye')">goodbye component</button>
+<p *ngIf="isActive">Hello old bro</p>
 
-<ng-container #container></ng-container>
-<app-user></app-user>
+@if(isActive){
+    <p>Hello new bro</p>
+}
+
+@for (item of [1,2,3]; track $index) {
+    <p>new {{item}}</p>
+}
+
+<p *ngFor="let item of [1,2,3]">old {{item}}</p>
+
+<button (click)="change()">show/hide</button>
