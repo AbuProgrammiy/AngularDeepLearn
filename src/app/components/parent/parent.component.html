@@ -1,5 +1,5 @@
-<button (click)="changeComponent('hello')">hello component</button>
-<button (click)="changeComponent('goodbye')">goodbye component</button>
+<input #someInput type="text">
+<button (click)="showInputValue(someInput)">Input qiymatini ko'rsatish</button>
 
-<ng-container #container></ng-container>
-<app-user></app-user>
+<app-child #child></app-child>
+<button (click)="child.greet()">Bolajonni funksiyasi</button>
