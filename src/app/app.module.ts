@@ -9,6 +9,7 @@ import { GoodbyeComponent } from './components/goodbye/goodbye.component';
 import { HelloComponent } from './components/hello/hello.component';
 import { HomeComponent } from './components/home/home.component';
 import { ParentComponent } from './components/parent/parent.component';
+import { UserModule } from './modules/user/user.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { ParentComponent } from './components/parent/parent.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

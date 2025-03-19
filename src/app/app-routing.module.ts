@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:"child",component:ChildComponent},
   {path:"common",component:CommonComponent},
   {path:"admin",component:AdminComponent},
-  {path:"user",component:UserComponent}
+  {path:"user",component:UserComponent, loadChildren:()=>import("./modules/user/user.module").then(m=>m.UserModule)}
 ];
 
 @NgModule({
