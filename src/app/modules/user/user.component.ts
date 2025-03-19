@@ -8,7 +8,4 @@ import { SampleService } from './services/sample.service';
   styleUrl: './user.component.scss'
 })
 export class UserComponent {
-  constructor(private sampleService:SampleService){
-    sampleService.hello()    
-  }
 }
