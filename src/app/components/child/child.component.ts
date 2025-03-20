@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ContentChild, ElementRef, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ContentChild, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
 
 @Component({
@@ -9,8 +9,10 @@ import { UserService } from '../../services/user/user.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildComponent {
-  greet(){
-    console.log("chiiiiiiiiiiiiild");
-    
+  @Input() message?: string
+  @Output() messageEvent = new EventEmitter()
+
+  sendMessage(){
+    this.messageEvent.emit("hello")
   }
 }

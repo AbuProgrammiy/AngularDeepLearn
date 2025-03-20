@@ -1,5 +1,3 @@
-<button (click)="changeComponent('hello')">hello component</button>
-<button (click)="changeComponent('goodbye')">goodbye component</button>
+<h2>Childdan kelgan xabar: {{message}}</h2>
 
-<ng-container #container></ng-container>
-<app-user></app-user>
+<app-child [message]="'Hello from parent'" (messageEvent)="reciveMessage($event)"></app-child>
