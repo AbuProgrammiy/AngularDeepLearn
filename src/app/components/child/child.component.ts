@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, ContentChild, ElementRef, Input } from '@angular/core';
-import { UserService } from '../../services/user/user.service';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-child, bolajon',
@@ -9,8 +8,9 @@ import { UserService } from '../../services/user/user.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildComponent {
-  greet(){
+  @Input() bgColor!:string
+
+  public greet(){
     console.log("chiiiiiiiiiiiiild");
-    
   }
 }

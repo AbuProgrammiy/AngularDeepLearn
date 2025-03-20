@@ -1,0 +1,69 @@
+<!--Conditionlar uchun-->
+@if(isActive){
+    <h3>{{content}}</h3>
+}
+@else{
+    <h3>Conptent is not vailable</h3>
+}
+<button (click)="manageContent()">Show/Hide content</button>
+
+<!--Multiple Conditionlar uchun-->
+@switch (user.role) {
+    @case ("Admin") {
+        <p>User is Admin!</p>
+    }
+    @case ("Simple") {
+        <p>User is Simple!</p>
+    }
+    @default {
+        <p>User is Unknown</p>
+    }
+}
+
+<button (click)="chnageUserRole()">Change User Role</button>
+
+<!--Listni aylatirish uchun-->
+@for (name of names; track $index) {
+    <p>{{ name }}</p>
+}
+
+<!--Componentlani Lazy load qilish uchun Angular 17+-->
+<app-child [bgColor]="'green'" #first></app-child>
+<app-child [bgColor]="'red'"></app-child>
+<app-child [bgColor]="'black'"></app-child>
+<app-child [bgColor]="'gray'"></app-child>
+
+<!--Defer Angular 17+-->
+<!-- @defer (on idle) { Browser barcha UIni yuklab bo'lgandan so'ng yuklaydi (default)-->
+<!-- @defer() { Yuqoridagi bilan birhil -->
+<!-- @defer(on timer(5s)) { Berilgan vaqtdan so'ng yuklaydi-->
+<!-- @defer(on interaction) { User placeholderga click qiganda yuklaydi (@placeholder required)-->
+<!-- @defer(on interaction(first)) { Placeholderga emas balki ko'rsatilgan elemntga bosilgan yuklaydi-->
+<!-- @defer(on hover) { Placeholderni hover qilinganda yuklaydi (buni ichiga boshqa elementni ham bersa bo'ladi)-->
+<!-- @defer(on immediate ) { Bu Eager loaded bilan bir hil ishlaydi-->
+<!-- @defer(on viewport ) { Bu user usha qisimga scroll qiganda yuklaydi-->
+<!-- @defer(when isComponentActive) { Aynan qaysidur shartga bog'lab ishlatsa bo'ladi-->
+<!-- @defer(on hover; on timer(3s) ) { Triggerlarni qo'shib ishlatsak ham bo'ladi-->
+<!-- @defer(on interaction; prefetch on timer(3s)) { prefetch shart tog'ri kelganda yuklaydi lekin ko'rsatmaydi, qolgan shart tog'ri kelganda ko'rsatadi-->
+@defer(on timer(3s)) {
+    <app-child [bgColor]="'blue'"></app-child>
+} 
+@placeholder { <!--Defer Contenti yuklashdan avval ko'rinadi-->
+    <p>...Placeholder...</p>
+}
+@loading { <!--Defer Contenti yuklanayotgan payt ko'rinadi-->
+    <p>Loading...</p>
+} 
+@error { <!--Defer Contenti Contenti yuklanishda xato ketsa ko'rinadi-->
+    <p>O noooo ERROR</p>
+}
+
+<button (click)="show()">Show</button>
+
+<!--Let O'zgaruvchi e'lon qilish uchun Angular 18+-->
+@let fullname=firstName+" "+lastName; <!--Takrorlanadigan kombinatsiyalrni jamlash uchun-->
+
+<h3>{{fullname}}</h3>
+<h4>{{fullname}}</h4>
+<h5>{{fullname}}</h5>
+<h6>{{fullname}}</h6>
