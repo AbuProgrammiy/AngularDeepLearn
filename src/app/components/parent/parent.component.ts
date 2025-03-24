@@ -18,9 +18,13 @@ export class ParentComponent {
     age: 18
   }
 
-  dataPromise = new Promise(resolve => {
+  public dataPromise = new Promise(resolve => {
     setTimeout(() => resolve('Data loaded!'), 2000);
   });
+
+  public earnMoney(){
+    this.money++
+  }
 }
 
 type Person = {

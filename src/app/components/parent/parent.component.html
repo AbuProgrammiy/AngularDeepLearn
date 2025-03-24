@@ -1,3 +1,4 @@
+<!--Build-In pipes-->
 <p>{{ date | date:"fullDate" }}</p>
 <p>{{ text | uppercase }}</p>
 <p>{{ money | currency:"USD" }}</p>
@@ -5,4 +6,11 @@
 <pre>{{ person | json }} </pre> <!--Json pretty-print bo'lishi uchun pre ishlatildi-->
 <p>{{ dataPromise | async }}</p>
 
+<!--Custom Pipe-->
 <p>{{'hello uppercase' | toUppercaseManually }}</p>
+
+<!--Pipes Precedence-->
+    <!--bir nechta pipelar ishlatilganda Angular chapdan o'nga ishlatadi, yani bitta pipeni outputi keyingisini input hisoblanadi-->
+{{ 'hello world' | uppercase | slice:0:5 }}
+
+<button (click)="earnMoney()">Earn money</button>
