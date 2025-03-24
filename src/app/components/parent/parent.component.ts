@@ -1,7 +1,4 @@
-import { Component, ComponentRef, ViewChild, ViewContainerRef } from '@angular/core';
-import { HelloComponent } from '../hello/hello.component';
-import { GoodbyeComponent } from '../goodbye/goodbye.component';
-import { UserModule } from '../../modules/user/user.module';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-parent',
