@@ -7,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './parent.component.scss',
 })
 export class ParentComponent {
-  
+  public isVisable: boolean = true;
+  public names: string[] = ["Abu", "Tokhir", "Ibrokhim"];
+  public role: Role = "admin"
+
+  public isHighlighted: boolean = true;
+  public isBold: boolean = false;
+  public color: string = "blue";
+  public description!:string;
 }
+
+type Role = "admin" | "user";

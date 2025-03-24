@@ -1,0 +1,30 @@
+<!--Structural Directives-->
+    <!--Conditional-->
+    <p *ngIf="isVisable">Hello Edmund's planet</p>
+
+    <!--Itaration over Collection-->
+    <ul>
+        <li *ngFor="let name of names">{{name}}</li>
+    </ul>
+
+    <!--Multiple conditions-->
+    <div [ngSwitch]="role">
+        <p *ngSwitchCase="'admin'">Welcome, Admin!</p>
+        <p *ngSwitchCase="'user'">Hello, User!</p>
+        <p *ngSwitchDefault>Guest Mode</p>
+    </div>
+
+
+<!--Attribute Directives-->
+    <!--NgClass - elementga dinamik holda classlarni qo'shib yoki o'chiradi-->
+    <h2 [ngClass]="{'high-lighted':isHighlighted, 'bold':isBold}">Salut mon pot! comment vas-tu?</h2>
+
+    <!--NgStyle - elementga dinamik holda style beradi yoki o'chiradi-->
+    <p [ngStyle]="{'color':color}">Bonjour!</p>
+
+    <!--NgModel - ma'lumotni ikki tomonlama bog'lash uchun ishlatiladi-->
+    <textarea [(ngModel)]="description"></textarea>
+    <p>{{description}}</p>
+
+<!--Custom Directive-->
+    <h1 appManulHighlight>Bu sarlavha Custom Directive orqli bo'yaldi</h1>

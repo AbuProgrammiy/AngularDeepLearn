@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ChildComponent } from './components/child/child.component';
 import { ParentComponent } from './components/parent/parent.component';
 import { HomeComponent } from './components/home/home.component';
+import { FormsModule } from '@angular/forms';
+import { ManulHighlightDirective } from './directives/manul-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { HomeComponent } from './components/home/home.component';
     ChildComponent,
     ParentComponent,
     HomeComponent,
+    ManulHighlightDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
