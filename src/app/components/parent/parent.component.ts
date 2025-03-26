@@ -1,3 +1,4 @@
+import { SampleService } from './../../services/sample/sample.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './parent.component.scss',
 })
 export class ParentComponent {
-  
+  constructor(private sampleService:SampleService){
+    sampleService.sayHello();
+  }
 }
