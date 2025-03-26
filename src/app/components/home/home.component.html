@@ -1,1 +1,28 @@
-<p>home works!</p>
+<a routerLink="/parent">Parent Page</a> <!--Static route-->
+<br>
+
+<!--Dynamic route-->
+    <a [routerLink]="[routePath, routePath2]">Go to dynamic page 1</a> <!--some/route/another-->
+    <br>
+    <a [routerLink]="routePath">Go to dynamic page 2</a>
+    <br>
+
+<!--Query parametrs-->
+    <a routerLink="/parent" [queryParams]="{name:'Abdulloh'}">Queryli pagelarga marhamat</a>
+    <br>
+    <a routerLink="/parent" [queryParams]="{name:'Abdulloh',age:34}">Bir nechta Queryli pagelarga marhamat</a>
+    <br>
+
+<!-- Fragment router -->
+    <a routerLink="/hello" fragment="section1">Fragment pagele (scroll)</a>
+    <br>
+
+<!-- Router service orqali -->
+    <button (click)="navigate()">Router service orqali</button>
+    <br>
+
+<!-- Guardi bor page o'tish -->
+    <a routerLink="/only-admin">Only Admin (guard)</a>
+    <br>
+
+<button (click)="makeUserAdmin()">Make user admin</button>
