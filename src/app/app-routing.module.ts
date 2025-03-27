@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChildComponent } from './components/child/child.component';
-import { ParentComponent } from './components/parent/parent.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { ParentComponent } from './components/parent/parent.component';
 import { authGuard } from './guards/auth.guard';
 import { confirmExitGuardGuard } from './guards/confirm-exit-guard.guard';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: "home", component: HomeComponent },
-  { path: "", redirectTo: "home", pathMatch: "full" }, // Default route
+  { path: "home", component: HomeComponent, pathMatch: "full" }, // Default route
   { path: "parent", component: ParentComponent }, // Custom route
   { path: "hello", redirectTo: "home" }, // Redirect qilish uchun
   { path: "child/:id", component: ChildComponent },
