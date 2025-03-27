@@ -27,12 +27,12 @@
     <p>{{ name }}</p>
 }
 
-<!--Componentlani Lazy load qilish uchun Angular 17+-->
 <app-child [bgColor]="'green'" #first></app-child>
 <app-child [bgColor]="'red'"></app-child>
 <app-child [bgColor]="'black'"></app-child>
 <app-child [bgColor]="'gray'"></app-child>
 
+<!--Componentlani Lazy load qilish uchun Angular 17+-->
 <!--Defer Angular 17+-->
 <!-- @defer (on idle) { Browser barcha UIni yuklab bo'lgandan so'ng yuklaydi (default)-->
 <!-- @defer() { Yuqoridagi bilan birhil -->
@@ -45,7 +45,7 @@
 <!-- @defer(when isComponentActive) { Aynan qaysidur shartga bog'lab ishlatsa bo'ladi-->
 <!-- @defer(on hover; on timer(3s) ) { Triggerlarni qo'shib ishlatsak ham bo'ladi-->
 <!-- @defer(on interaction; prefetch on timer(3s)) { prefetch shart tog'ri kelganda yuklaydi lekin ko'rsatmaydi, qolgan shart tog'ri kelganda ko'rsatadi-->
-@defer(on timer(3s)) {
+@defer() {
     <app-child [bgColor]="'blue'"></app-child>
 } 
 @placeholder { <!--Defer Contenti yuklashdan avval ko'rinadi-->
