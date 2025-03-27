@@ -8,12 +8,12 @@ import { UserComponent } from './modules/user/user.component';
 import { AdminComponent } from './modules/user/admin/admin.component';
 
 const routes: Routes = [
-  {path:"home",component:HomeComponent},
-  {path:"parent",component:ParentComponent},
-  {path:"child",component:ChildComponent},
-  {path:"common",component:CommonComponent},
-  {path:"admin",component:AdminComponent},
-  {path:"user",component:UserComponent, loadChildren:()=>import("./modules/user/user.module").then(m=>m.UserModule)}
+  { path: "home", component: HomeComponent },
+  { path: "parent", component: ParentComponent },
+  { path: "child", component: ChildComponent },
+  { path: "common", component: CommonComponent },
+  { path: "admin", component: AdminComponent },
+  { path: "user", component: UserComponent, loadChildren: () => import("./modules/user/user.module").then(m => m.UserModule) }
 ];
 
 @NgModule({
