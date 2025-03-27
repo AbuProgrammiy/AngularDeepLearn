@@ -17,7 +17,9 @@
     <input type="text" [attr.maxlength]="numberValue">
     <button [attr.status]="status" (click)="changeStatus()">Submit</button>
 
-
+<!-- Enent Bindings -->
+    <button (click)="sayHello()">Press</button>
+    
 <!--Two way Binding-->
     <p>two way binding: {{someText}}</p>
     <input [(ngModel)]="someText" type="text">

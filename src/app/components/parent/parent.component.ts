@@ -25,6 +25,10 @@ export class ParentComponent {
   someText!:string
   selectedOption!:string
 
+  sayHello(){
+    console.log("hello!");
+  }
+
   changeStatus(){
     if(this.status=="green"){
       this.status="red"
