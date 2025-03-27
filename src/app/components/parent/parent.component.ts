@@ -30,7 +30,7 @@ export class ParentComponent {
       this.status="red"
     }
     else{
-      this.status=""
+      this.status="green"
     }
   }
 }
