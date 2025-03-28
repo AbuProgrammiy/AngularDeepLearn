@@ -1,1 +1,21 @@
-<p>parent works!</p>
+<div class="main">
+    <form [formGroup]="userForm" (ngSubmit)="submitForm()" class="inner-main">
+        <div class="content-handler form-handler">
+            <label class="form-labels">Name:</label>
+            <input formControlName="name" class="form-inputs" type="text">
+        </div>
+        @if(userForm.get('name')?.invalid && userForm.get('name')?.touched){
+            <p class="warn-text">Enter up to 9 letter</p>
+        }
+        <div class="content-handler form-handler">
+            <label class="form-labels">Email:</label>
+            <input formControlName="email" class="form-inputs" type="text">
+        </div>
+        @if(userForm.get('email')?.invalid && userForm.get('email')?.touched){
+                <p class="warn-text">Please enter valid email</p>
+        }
+        <div class="content-handler">
+            <button type="submit" class="submit-btn">Submit</button>
+        </div>
+    </form>
+</div>
