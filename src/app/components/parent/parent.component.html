@@ -1,21 +1,89 @@
-<div class="main">
-    <form [formGroup]="userForm" (ngSubmit)="submitForm()" class="inner-main">
-        <div class="content-handler form-handler">
-            <label class="form-labels">Name:</label>
-            <input formControlName="name" class="form-inputs" type="text">
-        </div>
-        @if(userForm.get('name')?.invalid && userForm.get('name')?.touched){
-            <p class="warn-text">Enter up to 9 letter</p>
-        }
-        <div class="content-handler form-handler">
-            <label class="form-labels">Email:</label>
-            <input formControlName="email" class="form-inputs" type="text">
-        </div>
-        @if(userForm.get('email')?.invalid && userForm.get('email')?.touched){
-                <p class="warn-text">Please enter valid email</p>
-        }
-        <div class="content-handler">
-            <button type="submit" class="submit-btn">Submit</button>
-        </div>
+<!-- Reactive Forms -->
+    <form [formGroup]="userForm" (ngSubmit)="submitReactiveForm()">
+        <label>Name:</label>
+        <input formControlName="name" type="text">
+        <label>Email:</label>
+        <input formControlName="email" type="text">
+        <label>Age:</label>
+        <input formControlName="age" type="text">
+        <button type="submit">Submit</button>
     </form>
-</div>
+
+<!-- Template Driven Forms -->
+    <form #studentForm="ngForm" (ngSubmit)="submitTemplateDrivenForm()">
+        <label>Name:</label>
+        <input required [(ngModel)]="student.name" type="text" name="name">
+        <label>Email:</label>
+        <input [(ngModel)]="student.email" type="text" name="email">
+        <label>Age:</label>
+        <input [(ngModel)]="student.age" type="text" name="age">
+        <button [disabled]="studentForm.invalid" type="submit">Submit</button>
+    </form>
+
+<!-- Dynamic Forms -->
+    <form [formGroup]="dynamicForm" (ngSubmit)="submitDynamicForm()">
+        <label>Name:</label>
+        <input formControlName="name" type="text">
+        <ng-container formArrayName="emails" *ngFor="let emailCtrl of emails.controls; let i=index">
+            <label>Email {{i}}:</label>
+            <input [formControlName]="i" type="text">
+            <button (click)="removeEmail(i)">Remove</button>
+        </ng-container>
+        <button (click)="addEmail()">Add</button>
+        <button type="submit">Submit</button>
+    </form>
+
+<!-- Built-In Validaotors -->
+    <!-- In Template Driven Forms -->
+        <form #personTemplateForm="ngForm" (ngSubmit)="submitBuiltInValidatorsInTemplate()">
+            <label>Name:</label>
+            <input #nameInput="ngModel" name="name" [(ngModel)]="personTemplate.name" required minlength="5">
+            @if(nameInput.invalid && nameInput.touched){
+                <p>Name should be at least 5</p>
+            }
+
+            <button [disabled]="personTemplateForm.invalid" type="submit">Submit</button>
+        </form>
+
+    <!-- In Reactive Forms -->
+        <form [formGroup]="personReactiveForm" (ngSubmit)="submitBuiltInValidatorsInReactive()">
+            <label>Name:</label>
+            <input formControlName="name">
+            @if (personReactiveForm.get("name")?.invalid&&personReactiveForm.get("name")?.touched) {
+                <p>Ism eng kamida 5 ta harf bo'lsin</p>
+            }
+            <button [disabled]="personReactiveForm.invalid" type="submit">Submit</button>
+        </form>
+
+<!-- Custom Validators -->
+    <!-- Synchronous -->
+        <form [formGroup]="guestForm" >
+            <label>Name without A:</label>
+            <input formControlName="name">
+            @if (guestForm.get("name")?.invalid&&guestForm.get("name")?.touched) {
+                <p>Ismda "A" harifi bo'lmsligiki kersk edi!</p>
+                <p>Xatolik nomi: {{guestForm.get("name")?.errors | json}}</p>
+                <!-- ^^^ Aynan qaysi validation error bo'lganini bilish -->
+            }
+            <button type="submit">Submit</button>
+        </form>
+
+    <!-- Asynchrounus -->
+        <form [formGroup]="guestForm" >
+            <label>Username:</label>
+            <input formControlName="username">
+            @if (guestForm.get("username")?.invalid&&guestForm.get("username")?.touched) {
+                <p>Username allaqachon band qilingan</p>
+                <p>Xatolik nomi: {{guestForm.get("username")?.errors | json}}</p>
+                <!-- ^^^ Aynan qaysi validation error bo'lganini bilish -->
+            }
+            <button type="submit">Submit</button>
+        </form>
+
+<!-- Control Value Accessor -->
+    <form [formGroup]="clientForm" (ngSubmit)="submitControlValueAccessor()">
+        <label>Name:</label>
+        <input formControlName="name" type="text">
+        <app-custom-input formControlName="age"></app-custom-input>
+        <button [disabled]="!clientForm.get('age')?.touched" type="submit">Submit</button>
+    </form>
