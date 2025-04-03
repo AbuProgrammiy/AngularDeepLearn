@@ -82,7 +82,7 @@ export class ParentComponent {
   // Control Value Accessor
   clientForm = new FormGroup({
     name: new FormControl(),
-    age: new FormControl({ value: 2, disabled: true })
+    age: new FormControl({ value: 2, disabled: false })
   });
 
   submitControlValueAccessor() {
