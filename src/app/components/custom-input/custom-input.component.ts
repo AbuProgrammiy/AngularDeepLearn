@@ -6,6 +6,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   standalone: false,
   templateUrl: './custom-input.component.html',
   styleUrl: './custom-input.component.scss',
+  // Componentni Control Value Accessor sifatida registratsiya qilish
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: CustomInputComponent,
