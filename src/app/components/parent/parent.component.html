@@ -1,0 +1,95 @@
+<h1 class="centralized-text">Get All</h1>
+<table class="table table-primary table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (car of cars; track $index) {
+    <tr>
+      <th scope="row">{{car.id}}</th>
+      <td>{{car.brand}}</td>
+      <td>{{car.name}}</td>
+      <td>{{car.price}}</td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+<h1 class="centralized-text">Post</h1>
+<div class="content-handler">
+  <form #carPostForm="ngForm" class="post-control" (ngSubmit)="post()">
+    <div class="input-group mb-3">
+      <span class="input-group-text">Name:</span>
+      <input required name="name" [(ngModel)]="carDTO.name" class="form-control" placeholder="name">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Brand:</span>
+      <input required name="brand" [(ngModel)]="carDTO.brand" class="form-control" placeholder="brand">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Price:</span>
+      <input required name="price" [(ngModel)]="carDTO.price" type="number" class="form-control" placeholder="price">
+    </div>
+    <div class="content-handler">
+      <button [disabled]="carPostForm.invalid" class="btn btn-success">Create</button>
+    </div>
+  </form>
+</div>
+
+<h1 class="centralized-text">Put</h1>
+<div class="content-handler">
+  <form #cadPutForm="ngForm" class="post-control" (ngSubmit)="put()">
+    <div class="input-group mb-3">
+      <span class="input-group-text">Id:</span>
+      <input required name="id" [(ngModel)]="car.id" class="form-control" placeholder="name">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Name:</span>
+      <input required name="name" [(ngModel)]="car.name" class="form-control" placeholder="name">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Brand:</span>
+      <input required name="brand" [(ngModel)]="car.brand" class="form-control" placeholder="brand">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Price:</span>
+      <input required name="price" [(ngModel)]="car.price" type="number" class="form-control" placeholder="price">
+    </div>
+    <div class="content-handler">
+      <button [disabled]="cadPutForm.invalid" class="btn btn-warning">Put</button>
+    </div>
+  </form>
+</div>
+
+<h1 class="centralized-text">Delete</h1>
+<div class="content-handler">
+  <form #carDeleteForm="ngForm" class="post-control" (ngSubmit)="delete()">
+    <div class="input-group mb-3">
+      <span class="input-group-text">Id:</span>
+      <input required name="id" [(ngModel)]="id" class="form-control" placeholder="name">
+    </div>
+    <div class="content-handler">
+      <button [disabled]="carDeleteForm.invalid" class="btn btn-danger">Delete</button>
+    </div>
+  </form>
+</div>
+
+<h1 class="centralized-text">Students List</h1>
+<p class="centralized-text">Auth APIga murojat qilinadi token bilan</p>
+<div class="content-handler">
+  <button (click)="requestToAuthAPI()" class="btn btn-primary">Get Students</button>
+</div>
+
+<div class="content-handler">
+  <pre>
+    {{studentsList | json}}
+  </pre>
+</div>
+
+
+<footer class="footer"></footer>
